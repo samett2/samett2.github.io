@@ -68,6 +68,15 @@
     .ring{position:relative}
     .ring:focus-within{outline:none}
     .ring:focus-within .card{box-shadow:0 0 0 6px var(--ring)}
+
+    html {scroll-behavior: smooth;}
+
+    /* Highlight efekti */
+    .highlight {
+      box-shadow: 0 0 0 3px var(--acc);
+      border-radius: 18px;
+      transition: box-shadow 0.4s ease;
+    }
   </style>
 </head>
 <body>
@@ -141,6 +150,27 @@
 
   <script>
     document.getElementById('yil').textContent = new Date().getFullYear();
+
+    // Chip tıklama -> smooth scroll + highlight
+    document.querySelectorAll('.chip').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+          // Öncekileri temizle
+          document.querySelectorAll('.highlight').forEach(el =>
+            el.classList.remove('highlight')
+          );
+
+          // Kalıcı highlight ekle
+          target.classList.add('highlight');
+        }
+      });
+    });
   </script>
 </body>
 </html>
