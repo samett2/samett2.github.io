@@ -6,13 +6,13 @@
   <title>Samet | Hakkımda</title>
   <style>
     :root{
-      --bg: #0f172a;        /* slate-900 */
-      --panel: #111827;     /* gray-900 */
-      --soft: #1f2937;      /* gray-800 */
-      --text: #e5e7eb;      /* gray-200 */
-      --muted:#9ca3af;      /* gray-400 */
-      --acc: #22d3ee;       /* cyan-400 */
-      --acc-2:#a78bfa;      /* violet-400 */
+      --bg: #0f172a;
+      --panel: #111827;
+      --soft: #1f2937;
+      --text: #e5e7eb;
+      --muted:#9ca3af;
+      --acc: #22d3ee;
+      --acc-2:#a78bfa;
       --ring: rgba(34,211,238,.35);
     }
     *{box-sizing:border-box}
@@ -53,11 +53,11 @@
     .tile{border-radius:16px; border:1px solid rgba(229,231,235,.06); background:var(--panel); padding:18px}
     .tile h3{margin:0 0 8px; font-size:18px}
     .list{display:flex; flex-wrap:wrap; gap:10px}
-    .chip{border:1px solid rgba(229,231,235,.1); background:var(--soft); border-radius:999px; padding:8px 12px; font-weight:600}
+    .chip{border:1px solid rgba(229,231,235,.1); background:var(--soft); border-radius:999px; padding:12px 16px; font-weight:600; transition: transform .2s ease;}
+    .chip:hover{transform:scale(1.1); cursor:pointer; background:var(--acc-2); color:white}
 
     .footer{color:var(--muted); font-size:14px; padding:26px 0 40px; text-align:center}
 
-    /* Simple media queries */
     @media (max-width: 840px){
       .hero{grid-template-columns:1fr;}
     }
@@ -65,7 +65,6 @@
       .grid{grid-template-columns:1fr;}
     }
 
-    /* Fun accent ring */
     .ring{position:relative}
     .ring:focus-within{outline:none}
     .ring:focus-within .card{box-shadow:0 0 0 6px var(--ring)}
@@ -93,12 +92,12 @@
       <aside class="card" aria-label="Öne çıkan ilgi alanları">
         <h2 style="margin-top:0">Öne Çıkanlar</h2>
         <div class="list" role="list">
-          <span class="chip" role="listitem">📦 3D Modelleme</span>
-          <span class="chip" role="listitem">🎮 Oyun Oynamak</span>
-          <span class="chip" role="listitem">🍿 Anime İzlemek</span>
-          <span class="chip" role="listitem">🏐 Voleybol</span>
-          <span class="chip" role="listitem">🏀 Basketbol</span>
-          <span class="chip" role="listitem">⚽ Futbol (izleme)</span>
+          <a class="chip" role="listitem" href="#modelleme">📦 3D Modelleme</a>
+          <a class="chip" role="listitem" href="#oyun">🎮 Oyun Oynamak</a>
+          <a class="chip" role="listitem" href="#anime">🍿 Anime İzlemek</a>
+          <a class="chip" role="listitem" href="#spor">🏐 Voleybol</a>
+          <a class="chip" role="listitem" href="#spor">🏀 Basketbol</a>
+          <a class="chip" role="listitem" href="#futbol">⚽ Futbol (izleme)</a>
         </div>
       </aside>
     </section>
@@ -106,23 +105,23 @@
     <section id="ilgi-alanlari" class="card" aria-label="İlgi alanları detay">
       <h2 style="margin-top:0">İlgi Alanlarım</h2>
       <div class="grid">
-        <div class="tile">
+        <div class="tile" id="modelleme">
           <h3>3D Modelleme</h3>
-          <p>Üç boyutlu düşünmeyi ve fikirleri görselleştirmeyi seviyorum. Geometri, form ve detay odağım yüksek.</p>
+          <p>Blender ile 3D modeller yapmayı düşünmeyi ve fikirleri görselleştirmeyi seviyorum. Geometri, form ve detay odağım yüksek.</p>
         </div>
-        <div class="tile">
+        <div class="tile" id="oyun">
           <h3>Oyun Oynamak</h3>
           <p>Oyunlar benim için hem eğlence hem de etkileşimi keşfetme yolu. Rekabetçi ve hikâye odaklı deneyimleri seviyorum.</p>
         </div>
-        <div class="tile">
+        <div class="tile" id="anime">
           <h3>Anime İzlemek</h3>
           <p>Anime; görsel anlatım, duygu ve müziğin güçlü birleşimi. Yeni dünyalar ve karakterleri keşfetmeyi severim.</p>
         </div>
-        <div class="tile">
+        <div class="tile" id="spor">
           <h3>Voleybol & Basketbol</h3>
           <p>Takım sporlarında iletişim ve ritim önemli. Sahada aktif kalmayı ve birlikte kazanmayı seviyorum.</p>
         </div>
-        <div class="tile">
+        <div class="tile" id="futbol">
           <h3>Futbol İzlemek</h3>
           <p>Zekice kurulan oyun planlarını, tempo değişimlerini ve tribün atmosferini izlemekten keyif alırım.</p>
         </div>
@@ -136,12 +135,11 @@
 
   <footer class="footer">
     <div class="wrapper">
-      <p>© <span id="yil"></span> Samet Şahin </p>
+      <p>© <span id="yil"></span> Samet — Sadece HTML + CSS ile hazırlanmıştır.</p>
     </div>
   </footer>
 
   <script>
-    // Sadece yılı doldurmak için; isterseniz bu kısmı silebilirsiniz.
     document.getElementById('yil').textContent = new Date().getFullYear();
   </script>
 </body>
