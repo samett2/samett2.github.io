@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Samet | Hakkımda</title>
+  <style>
+    :root{
+      --bg: #0f172a;        /* slate-900 */
+      --panel: #111827;     /* gray-900 */
+      --soft: #1f2937;      /* gray-800 */
+      --text: #e5e7eb;      /* gray-200 */
+      --muted:#9ca3af;      /* gray-400 */
+      --acc: #22d3ee;       /* cyan-400 */
+      --acc-2:#a78bfa;      /* violet-400 */
+      --ring: rgba(34,211,238,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:
+        radial-gradient(1200px 700px at 10% -10%, rgba(167,139,250,.15), transparent 60%),
+        radial-gradient(900px 600px at 110% 10%, rgba(34,211,238,.12), transparent 55%),
+        var(--bg);
+      color:var(--text); font: 500 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Inter, "Noto Sans", "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      display:flex; flex-direction:column;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrapper{max-width:1000px; width:92%; margin-inline:auto}
+    header{
+      position:sticky; top:0; z-index:10; backdrop-filter:saturate(140%) blur(8px);
+      background:linear-gradient(to bottom, rgba(15,23,42,.8), rgba(15,23,42,.35));
+      border-bottom:1px solid rgba(229,231,235,.06);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:10px}
+    .badge{width:12px; height:12px; border-radius:50%; background:linear-gradient(135deg, var(--acc), var(--acc-2)); box-shadow:0 0 0 6px rgba(34,211,238,.08)}
+    .brand strong{letter-spacing:.4px}
+
+    .hero{display:grid; grid-template-columns:1.4fr 1fr; gap:24px; align-items:center; padding:48px 0 28px}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
+      border:1px solid rgba(229,231,235,.06); border-radius:20px; padding:24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .title{font-size: clamp(28px, 4vw, 40px); margin:0 0 8px; line-height:1.2}
+    .subtitle{color:var(--muted); margin:0}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px;
+      background:rgba(167,139,250,.08); border:1px solid rgba(167,139,250,.25); color:#ddd; font-weight:600; font-size:14px
+    }
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    .tile{border-radius:16px; border:1px solid rgba(229,231,235,.06); background:var(--panel); padding:18px}
+    .tile h3{margin:0 0 8px; font-size:18px}
+    .list{display:flex; flex-wrap:wrap; gap:10px}
+    .chip{border:1px solid rgba(229,231,235,.1); background:var(--soft); border-radius:999px; padding:8px 12px; font-weight:600}
+
+    .footer{color:var(--muted); font-size:14px; padding:26px 0 40px; text-align:center}
+
+    /* Simple media queries */
+    @media (max-width: 840px){
+      .hero{grid-template-columns:1fr;}
+    }
+    @media (max-width: 620px){
+      .grid{grid-template-columns:1fr;}
+    }
+
+    /* Fun accent ring */
+    .ring{position:relative}
+    .ring:focus-within{outline:none}
+    .ring:focus-within .card{box-shadow:0 0 0 6px var(--ring)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrapper nav">
+      <div class="brand"><span class="badge" aria-hidden="true"></span><strong>Samet</strong></div>
+      <nav class="links" aria-label="Bölümler">
+        <a href="#hakkimda">Hakkımda</a>
+        <span aria-hidden="true"> · </span>
+        <a href="#ilgi-alanlari">İlgi Alanlarım</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrapper">
+    <section id="hakkimda" class="hero ring">
+      <article class="card" tabindex="0" aria-label="Samet hakkında kısa tanıtım">
+        <p class="pill" aria-label="Bölüm ve sınıf">🎓 Ahi Evran Üniversitesi · Bilgisayar Mühendisliği · 1. Sınıf</p>
+        <h1 class="title">Merhaba, ben Samet.</h1>
+        <p class="subtitle">Kendimi kısaca anlatmam gerekirse; 3D modelleme yapmayı, oyun oynamayı ve anime izlemeyi seviyorum. Spor olarak voleybol ve basketbol oynamayı; ayrıca futbol izlemeyi severim.</p>
+      </article>
+      <aside class="card" aria-label="Öne çıkan ilgi alanları">
+        <h2 style="margin-top:0">Öne Çıkanlar</h2>
+        <div class="list" role="list">
+          <span class="chip" role="listitem">📦 3D Modelleme</span>
+          <span class="chip" role="listitem">🎮 Oyun Oynamak</span>
+          <span class="chip" role="listitem">🍿 Anime İzlemek</span>
+          <span class="chip" role="listitem">🏐 Voleybol</span>
+          <span class="chip" role="listitem">🏀 Basketbol</span>
+          <span class="chip" role="listitem">⚽ Futbol (izleme)</span>
+        </div>
+      </aside>
+    </section>
+
+    <section id="ilgi-alanlari" class="card" aria-label="İlgi alanları detay">
+      <h2 style="margin-top:0">İlgi Alanlarım</h2>
+      <div class="grid">
+        <div class="tile">
+          <h3>3D Modelleme</h3>
+          <p>Üç boyutlu düşünmeyi ve fikirleri görselleştirmeyi seviyorum. Geometri, form ve detay odağım yüksek.</p>
+        </div>
+        <div class="tile">
+          <h3>Oyun Oynamak</h3>
+          <p>Oyunlar benim için hem eğlence hem de etkileşimi keşfetme yolu. Rekabetçi ve hikâye odaklı deneyimleri seviyorum.</p>
+        </div>
+        <div class="tile">
+          <h3>Anime İzlemek</h3>
+          <p>Anime; görsel anlatım, duygu ve müziğin güçlü birleşimi. Yeni dünyalar ve karakterleri keşfetmeyi severim.</p>
+        </div>
+        <div class="tile">
+          <h3>Voleybol & Basketbol</h3>
+          <p>Takım sporlarında iletişim ve ritim önemli. Sahada aktif kalmayı ve birlikte kazanmayı seviyorum.</p>
+        </div>
+        <div class="tile">
+          <h3>Futbol İzlemek</h3>
+          <p>Zekice kurulan oyun planlarını, tempo değişimlerini ve tribün atmosferini izlemekten keyif alırım.</p>
+        </div>
+        <div class="tile">
+          <h3>Bilgisayar Mühendisliği</h3>
+          <p>Analitik düşünme ve problem çözme benim için merkezde. Temelleri sağlam öğrenmeye odaklanıyorum.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrapper">
+      <p>© <span id="yil"></span> Samet Şahin </p>
+    </div>
+  </footer>
+
+  <script>
+    // Sadece yılı doldurmak için; isterseniz bu kısmı silebilirsiniz.
+    document.getElementById('yil').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
