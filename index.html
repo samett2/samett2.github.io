@@ -4,161 +4,279 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Samet | Hakkımda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg: #0f172a;
-      --panel: #111827;
-      --soft: #1f2937;
-      --text: #e5e7eb;
-      --muted:#9ca3af;
-      --acc: #22d3ee;
-      --acc-2:#a78bfa;
-      --ring: rgba(34,211,238,.35);
+      --bg: #0f1226;
+      --surface: #141833;
+      --muted: #98a2b3;
+      --text: #e6e9f2;
+      --accent: #6dd6ff;
+      --accent-2:#9b8cff;
+      --ring: rgba(109,214,255,.5);
+      --radius: 18px;
+      --max: 1100px;
     }
-    *{box-sizing:border-box}
+    *{box-sizing: border-box}
     html,body{height:100%}
     body{
-      margin:0; background:
-        radial-gradient(1200px 700px at 10% -10%, rgba(167,139,250,.15), transparent 60%),
-        radial-gradient(900px 600px at 110% 10%, rgba(34,211,238,.12), transparent 55%),
-        var(--bg);
+      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color:var(--text);
-      font: 500 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Inter, "Noto Sans", "Helvetica Neue", Arial;
-      display:flex; flex-direction:column;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(155,140,255,.25), transparent 60%),
+        radial-gradient(900px 500px at 110% 20%, rgba(109,214,255,.22), transparent 60%),
+        linear-gradient(180deg, #0d1022, #0f1226 40%);
     }
     a{color:inherit; text-decoration:none}
-    .wrapper{max-width:1000px; width:92%; margin-inline:auto}
-    header{
-      position:sticky; top:0; z-index:10; backdrop-filter:saturate(140%) blur(8px);
-      background:linear-gradient(to bottom, rgba(15,23,42,.8), rgba(15,23,42,.35));
-      border-bottom:1px solid rgba(229,231,235,.06);
-    }
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
-    .brand{display:flex; align-items:center; gap:10px}
-    .badge{width:12px; height:12px; border-radius:50%; background:linear-gradient(135deg, var(--acc), var(--acc-2)); box-shadow:0 0 0 6px rgba(34,211,238,.08)}
-    .brand strong{letter-spacing:.4px}
+    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
 
-    .hero{display:grid; grid-template-columns:1.4fr 1fr; gap:24px; align-items:center; padding:48px 0 28px}
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
-      border:1px solid rgba(229,231,235,.06); border-radius:20px; padding:24px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
-    }
-    .title{font-size: clamp(28px, 4vw, 40px); margin:0 0 8px; line-height:1.2}
-    .subtitle{color:var(--muted); margin:0}
-    .pill{
-      display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px;
-      background:rgba(167,139,250,.08); border:1px solid rgba(167,139,250,.25); color:#ddd; font-weight:600; font-size:14px
-    }
-    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
-    .tile{border-radius:16px; border:1px solid rgba(229,231,235,.06); background:var(--panel); padding:18px}
-    .tile h3{margin:0 0 8px; font-size:18px}
-    .list{display:flex; flex-wrap:wrap; gap:10px}
-    .chip{
-      border:1px solid rgba(229,231,235,.1);
-      background:var(--soft);
-      border-radius:999px;
-      padding:12px 16px;
-      font-weight:600;
-      transition: transform .2s ease;
-    }
-    .chip:hover{
-      transform:scale(1.1);
-      cursor:pointer;
-      background:var(--acc-2);
-      color:white
-    }
+    /* Header */
+    header{ position:sticky; top:0; z-index:50; backdrop-filter: blur(10px); background: linear-gradient(180deg, rgba(15,18,38,.85), rgba(15,18,38,.55)); border-bottom:1px solid rgba(255,255,255,.06);}    
+    .nav{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0; }
+    .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.4px}
+    .logo{ width:34px; height:34px; border-radius:10px; background: conic-gradient(from 180deg, var(--accent), var(--accent-2)); box-shadow: 0 0 0 6px rgba(109,214,255,.1), 0 10px 25px rgba(0,0,0,.35);}    
+    .navlinks{display:flex; gap:8px; flex-wrap:wrap}
+    .chip{ padding:10px 14px; border-radius:999px; font-weight:600; font-size:14px; border:1px solid rgba(255,255,255,.09); background: rgba(255,255,255,.02); transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease; }
+    .chip:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.18); box-shadow: 0 0 0 4px rgba(157,148,255,.12)}
 
-    .footer{color:var(--muted); font-size:14px; padding:26px 0 40px; text-align:center}
+    /* Hero */
+    .hero{ padding:80px 0 50px }
+    .hero-wrap{ display:grid; grid-template-columns: 1.2fr .8fr; gap:28px; align-items:center }
+    @media (max-width: 900px){ .hero-wrap{ grid-template-columns: 1fr } }
 
-    @media (max-width: 840px){
-      .hero{grid-template-columns:1fr;}
+    .card{ background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.08); border-radius: var(--radius); box-shadow: 0 20px 40px rgba(0,0,0,.35); }
+    .hero-card{ padding:28px }
+    .eyebrow{ color:var(--muted); text-transform:uppercase; letter-spacing:.14em; font-weight:700; font-size:12px }
+    h1{ font-size: clamp(28px, 5vw, 44px); margin:8px 0 6px }
+    .subtitle{ font-size: clamp(16px, 3vw, 19px); color:#cfd6e6; line-height:1.6 }
+
+    .badges{ display:flex; flex-wrap:wrap; gap:10px; margin-top:18px }
+    .badge{ cursor:pointer; font-size:14px; padding:10px 12px; border-radius:12px; border:1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.03); transition: transform .12s ease }
+    .badge:hover{ transform: translateY(-3px) }
+
+    .stat{ display:grid; gap:8px; padding:22px; text-align:center; }
+    .stat strong{ font-size: clamp(24px, 4vw, 32px) }
+    .stat span{ color:var(--muted) }
+
+    /* Sections */
+    section{ padding: 28px 0 8px }
+    .section-head{ display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:16px }
+    .section-head h2{ margin:0; font-size: clamp(20px, 4vw, 28px) }
+    .section-head p{ margin:0; color: var(--muted) }
+
+    /* Interests grid */
+    .grid{ display:grid; grid-template-columns: repeat(12, 1fr); gap:16px }
+    .tile{ grid-column: span 6; padding:20px; border-radius: var(--radius); border:1px solid rgba(255,255,255,.08); background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)); transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+    .tile:hover{ transform: translateY(-4px); border-color: rgba(255,255,255,.17); box-shadow: 0 12px 30px rgba(0,0,0,.35) }
+    .tile h3{ margin:6px 0 8px }
+    .tile p{ margin:0; color:#cfd6e6; line-height:1.7 }
+    @media (max-width: 900px){ .tile{ grid-column: span 12 } }
+
+    .icon{ font-size:24px; opacity:.95 }
+
+    /* Modal / Popup (CSS-only using hidden checkbox) */
+    .modal-toggle{ display:none }
+    .modal{
+      position:fixed; inset:0; display:flex; align-items:center; justify-content:center; visibility:hidden; pointer-events:none; opacity:0; transition: opacity .18s ease, visibility .18s ease;
     }
-    @media (max-width: 620px){
-      .grid{grid-template-columns:1fr;}
-    }
+    .modal .backdrop{ position:absolute; inset:0; background:linear-gradient(180deg, rgba(2,6,23,.6), rgba(2,6,23,.6)); backdrop-filter: blur(6px); }
+    .modal .window{ position:relative; z-index:2; width:min(920px, 96%); max-height:86vh; overflow:auto; border-radius:12px; padding:20px; background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08) }
+    .modal h3{ margin-top:0 }
+    /* when checkbox checked, show modal */
+    input.modal-toggle:checked + .modal{ visibility:visible; pointer-events:auto; opacity:1 }
+    .close-btn{ display:inline-block; margin-left:auto; padding:6px 10px; border-radius:8px; border:1px solid rgba(255,255,255,.07); background: rgba(255,255,255,.02); cursor:pointer }
 
-    .ring{position:relative}
-    .ring:focus-within{outline:none}
-    .tile:focus-within { box-shadow: 0 0 0 6px var(--ring); }
+    /* Placeholder lists */
+    .item-grid{ display:grid; gap:12px; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin-top:12px }
+    .item{ padding:10px; border-radius:10px; border:1px solid rgba(255,255,255,.06); background: rgba(255,255,255,.02) }
+    .muted{ color:var(--muted); font-size:14px }
 
-    html {scroll-behavior: smooth;}
+    footer{ padding:30px 0 60px; color:var(--muted) }
+    .foot{ display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap }
+    :is(a, button, .chip):focus{ outline:none; box-shadow: 0 0 0 6px var(--ring) }
+    html{ scroll-behavior: smooth }
+
+    /* small screens tweak for hero stats */
+    @media (max-width:520px){ .hero-wrap{ gap:18px } .hero-card{padding:20px} }
   </style>
 </head>
 <body>
   <header>
-    <div class="wrapper nav">
-      <div class="brand"><span class="badge"></span><strong>Samet</strong></div>
-      <nav class="links">
-        <a href="#hakkimda">Hakkımda</a>
-        <span> · </span>
-        <a href="#ilgi-alanlari">İlgi Alanlarım</a>
+    <div class="container nav">
+      <div class="brand"><span class="logo" aria-hidden="true"></span> <span>Samet</span></div>
+      <nav class="navlinks" aria-label="Bölümler">
+        <a class="chip" href="#hakkimda">Hakkımda</a>
+        <a class="chip" href="#ilgi-alanlari">İlgi Alanlarım</a>
       </nav>
     </div>
   </header>
 
-  <main class="wrapper">
-    <section id="hakkimda" class="hero ring">
-      <article class="card">
-        <p class="pill">🎓 Ahi Evran Üniversitesi · Bilgisayar Mühendisliği · 1. Sınıf</p>
-        <h1 class="title">Selamlar, Adım Samet.</h1>
-        <p class="subtitle">Kendimi kısaca anlatmam gerekirse; 3D modelleme yapmayı, oyun oynamayı ve anime izlemeyi seviyorum. Spor olarak voleybol ve basketbol oynamayı severim.</p>
-      </article>
-      <aside class="card">
-        <h2 style="margin-top:0">Öne Çıkanlar</h2>
-        <div class="list">
-          <a class="chip" href="#modelleme">📦 3D Modelleme</a>
-          <a class="chip" href="#oyun">🎮 Oyun Oynamak</a>
-          <a class="chip" href="#anime">🍿 Anime İzlemek</a>
-          <a class="chip" href="#spor">🏐/🏀 Voleybol & Basketbol</a>
-        </div>
-      </aside>
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero" id="hakkimda">
+      <div class="hero-wrap">
+        <article class="card hero-card">
+          <div class="eyebrow">Hakkımda</div>
+          <h1>Merhaba! Ben Samet.</h1>
+          <p class="subtitle">Ahi Evran Üniversitesi <strong>Bilgisayar Mühendisliği</strong> <strong>1. sınıf</strong> öğrencisiyim.</p>
+          <div class="badges" aria-label="Kısa etiketler">
+            <!-- These badges open CSS-only popups via hidden checkboxes -->
+
+            <!-- 3D Modelleme modal toggle -->
+            <label for="modal-models" class="badge">3D modelleme</label>
+
+            <!-- Oyun modal -->
+            <label for="modal-games" class="badge">Oyun oynamak</label>
+
+            <!-- Anime modal -->
+            <label for="modal-anime" class="badge">Anime izlemek</label>
+
+            <!-- Sports combined tile label triggers scroll to section -->
+            <a class="badge" href="#spor">Voleybol & Basketbol</a>
+
+            <span class="badge">Müzik dinlemek</span>
+          </div>
+
+        </article>
+        <aside class="card" aria-label="Özet istatistik">
+          <div class="stat">
+            <strong>Bilgisayar Müh.</strong>
+            <span>Ahi Evran Üniversitesi</span>
+          </div>
+          <div class="stat" style="border-top:1px solid rgba(255,255,255,.07)">
+            <strong>1. Sınıf</strong>
+            <span>Öğrenciyim</span>
+          </div>
+        </aside>
+      </div>
     </section>
 
-    <section id="ilgi-alanlari" class="card">
-      <h2 style="margin-top:0">İlgi Alanlarım</h2>
-      <div class="grid">
-        <div class="tile" id="modelleme">
-          <h3>3D Modelleme</h3>
-          <p>Blender ile 3D modeller yapmayı seviyorum, obje modellemede sorunum yok ama karakter modelleme konusunda kendimi geliştirmeye çalışıyorum.</p>
-        </div>
-        <div class="tile" id="oyun">
-          <h3>Oyun Oynamak</h3>
-          <p>Genel olarak rekabetçi[Valorant, CS] ve hikâye odaklı[RDR2, TLOU, Uncharted...] oyunları seviyorum.</p>
-        </div>
-        <div class="tile" id="anime">
-          <h3>Anime İzlemek</h3>
-          <p>Önceden önyargılıydım ama artık anime izlemeyi çok seviyorum.</p>
-        </div>
-        <div class="tile" id="spor">
-          <h3>Voleybol & Basketbol</h3>
-          <p>Oynamayı severim o kadar :)</p>
-        </div>
-        <div class="tile" id="bilgisayar">
-          <h3>Bilgisayar Mühendisliği</h3>
-          <p>Oyun tasarlamak istiyorum ve bu alanda kendimi geliştiriyorum.</p>
-        </div>
+    <!-- INTERESTS -->
+    <section id="ilgi-alanlari">
+      <div class="section-head">
+        <h2>İlgi Alanlarım</h2>
+        <p>Sevdiğim şeylerden kısa notlar. İlgili öğelere tıklayın.</p>
       </div>
+      <div class="grid">
+        <!-- 3D Modelleme (tile opens modal) -->
+        <article class="tile">
+          <div class="icon" aria-hidden="true">🧱</div>
+          <h3>3D Modelleme</h3>
+          <p>Üç boyutlu dünyalar ve nesneler tasarlamayı seviyorum. Yaptığım bazı modelleri görmek için tıkla.</p>
+        </article>
+
+        <!-- Games -->
+        <article class="tile">
+          <div class="icon" aria-hidden="true">🎮</div>
+          <h3>Oyun Oynamak</h3>
+          <p>Rekabetçi ve Hikayeli oyunları  seviyorum. Favori oyunlarımı görmek için tıkla.</p>
+        </article>
+
+        <!-- Music -->
+        <article class="tile">
+          <div class="icon" aria-hidden="true">🎧</div>
+          <h3>Müzik Dinlemek</h3>
+          <p>Müzik odaklanmamı sağlar, müzik dinlerken kafam açılır ve genel olarak her şeyi müzikle yaparım.</p>
+        </article>
+
+        <!-- Combined Sports tile -->
+        <article id="spor" class="tile">
+          <div style="display:flex; gap:10px; align-items:center"><div class="icon">🏐</div><div class="icon">🏀</div></div>
+          <h3>Voleybol & Basketbol</h3>
+          <p>Voleybol ve basketbol oynamayı seviyorum orta okul ve lise boyunca bol bol oynardım.</p>
+        </article>
+
+        <!-- Anime -->
+        <article class="tile">
+          <div class="icon" aria-hidden="true">📺</div>
+          <h3>Anime İzlemek</h3>
+          <p>Anime izlemeyi seviyorum. İzlediklerimi görmek için tıkla.</p>
+        </article>
+
+        <!-- Learning -->
+        <article class="tile">
+          <div class="icon" aria-hidden="true">📚</div>
+          <h3>Öğrenme</h3>
+          <p>Kodlama öğrenip zaten bildiğim 3D modelleme becerimi geliştirerek ilerde oyunlar yapmak istiyorum.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="padding:34px 0 16px">
+      <article class="card" style="padding:22px; text-align:center">
+        <p style="margin:0; font-weight:600; font-size:18px">Bu sayfa yalnızca HTML + CSS ile hazırlandı.</p>
+        <p style="margin:6px 0 0; color:var(--muted)">İçerikleri (3D modeller, animeler, oyunlar) bana gönderdiğinde burada gözükecek şekilde hazır placeholderlar koydum.</p>
+      </article>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="wrapper">
-      <p>© <span id="yil"></span> Samet Şahin</p>
+  <!-- CSS-only modals: use hidden checkboxes to open -->
+  <!-- Models Modal -->
+  <input class="modal-toggle" type="checkbox" id="modal-models" />
+  <div class="modal">
+    <label class="backdrop" for="modal-models" style="position:absolute; inset:0; cursor:pointer"></label>
+    <div class="window">
+      <div style="display:flex; gap:12px; align-items:center;">
+        <h3>3D Modellerim</h3>
+        <label for="modal-models" class="close-btn">Kapat</label>
+      </div>
+      <p class="muted">Aşağıya 3D model görsellerini veya küçük açıklamaları eklersin. (Bana gönderdiğinde ben buraya eklerim.)</p>
+      <div class="item-grid" id="models-list">
+        <!-- PLACEHOLDERS: Replace these with your actual model thumbnails or descriptions -->
+        <div class="item">Model #1 — <span class="muted">(thumbnail veya isim buraya)</span></div>
+        <div class="item">Model #2 — <span class="muted">(thumbnail veya isim buraya)</span></div>
+        <div class="item">Model #3 — <span class="muted">(thumbnail veya isim buraya)</span></div>
+      </div>
+      <p class="muted" style="margin-top:12px">Not: HTML/CSS kısıtları nedeniyle gerçek 3D dosyalarını gömmek mümkün değil; küçük görüntüler, açıklamalar veya linkler eklemek en uygunu.</p>
+    </div>
+  </div>
+
+  <!-- Games Modal -->
+  <input class="modal-toggle" type="checkbox" id="modal-games" />
+  <div class="modal">
+    <label class="backdrop" for="modal-games" style="position:absolute; inset:0; cursor:pointer"></label>
+    <div class="window">
+      <div style="display:flex; gap:12px; align-items:center;">
+        <h3>Oyunlar</h3>
+        <label for="modal-games" class="close-btn">Kapat</label>
+      </div>
+      <p class="muted">Favori oyunlarını buraya ekle. Bana gönderdiğinde ben metinleri/kapak görsellerini yerleştiririm.</p>
+      <div class="item-grid" id="games-list">
+        <div class="item">Oyun #1 — <span class="muted">(isim veya kısa not)</span></div>
+        <div class="item">Oyun #2 — <span class="muted">(isim veya kısa not)</span></div>
+        <div class="item">Oyun #3 — <span class="muted">(isim veya kısa not)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Anime Modal -->
+  <input class="modal-toggle" type="checkbox" id="modal-anime" />
+  <div class="modal">
+    <label class="backdrop" for="modal-anime" style="position:absolute; inset:0; cursor:pointer"></label>
+    <div class="window">
+      <div style="display:flex; gap:12px; align-items:center;">
+        <h3>İzlediğim Animeler</h3>
+        <label for="modal-anime" class="close-btn">Kapat</label>
+      </div>
+      <p class="muted">Animelerin isimlerini ve istersen kısa notlarını ekleyebilirsin. Gönderdiğinde ben burayı güncellerim.</p>
+      <div class="item-grid" id="anime-list">
+        <div class="item">Anime #1 — <span class="muted">(isim)</span></div>
+        <div class="item">Anime #2 — <span class="muted">(isim)</span></div>
+        <div class="item">Anime #3 — <span class="muted">(isim)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container foot">
+      <span>© Samet</span>
+      <span>Yalnızca HTML & CSS</span>
     </div>
   </footer>
 
-  <script>
-    document.querySelectorAll('.chip').forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const target = document.getElementById(targetId);
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-      });
-    });
-  </script>
+  <!-- Not: JavaScript kullanılmadı. İçerikleri (ör. gerçek görseller veya listeler) bana gönderdiğinde, bu HTML dosyasını senin için doğrudan düzenleyip burada placeholderların yerine koyarım. -->
 </body>
 </html>
