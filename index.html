@@ -21,14 +21,18 @@
     }
     *{box-sizing: border-box}
     html,body{height:100%}
-    body{
-      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 600px at 10% -10%, rgba(155,140,255,.25), transparent 60%),
-        radial-gradient(900px 500px at 110% 20%, rgba(109,214,255,.22), transparent 60%),
-        linear-gradient(180deg, #0d1022, #0f1226 40%);
-    }
+  body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+
+  /* Uzay havası ve lavanta tonu */
+  background: 
+    radial-gradient(circle at 20% 10%, rgba(173, 152, 255, 0.3), transparent 60%),
+    radial-gradient(circle at 80% 20%, rgba(173, 152, 255, 0.25), transparent 60%),
+    linear-gradient(180deg, #5d3fd3, #b497ff);
+  background-blend-mode: overlay;
+}
     a{color:inherit; text-decoration:none}
     .container{max-width:var(--max); margin:0 auto; padding:0 20px}
 
